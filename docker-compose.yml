@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  xerj:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - RUST_LOG=info
+      - XERJ_DATA_PATH=/data
+    volumes:
+      - xerj_data:/data
+    command: ["./target/release/xerj", "serve", "--config", "/data/config.toml"]
+
+  xerj-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    profiles: ["test"]
+    command: ["cargo", "test", "--workspace"]
+
+volumes:
+  xerj_data:
