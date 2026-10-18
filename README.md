@@ -1,4 +1,8 @@
-# XERJ
+## Démarrage en une commande
+```bash
+docker-compose up --build
+# ou sans docker:
+cargo build --release && ./target/release/xerj serve #XERJ
 
 <a href="https://trendshift.io/repositories/116361?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-116361" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/repositories/116361" alt="xerj-org%2Fxerj | Trendshift" width="250" height="55"/></a>
 
